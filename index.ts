@@ -4,7 +4,7 @@ import { normalizeSlug } from './lib/letterboxd/util.js';
 import { transformLetterboxdMovieToRadarr } from './lib/radarr/transform.js';
 import { getMoviesDetailCached } from './lib/letterboxd/movie-details.js';
 
-const PORT = '666'
+const PORT = '10.0.0.228:3016'
 
 const app = express();
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
