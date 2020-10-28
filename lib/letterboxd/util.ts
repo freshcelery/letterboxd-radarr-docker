@@ -1,5 +1,5 @@
 import axios from 'axios';
-import kanpai from 'kanpai-scraper';
+import {KanpaiExecutable, KanpaiContext, executeKanpai} from 'kanpai-scraper';
 
 export const LETTERBOXD_ORIGIN = 'https://letterboxd.com';
 
@@ -14,10 +14,10 @@ export const getFirstMatch = (regex: RegExp) => (val?: string): string => {
     return match[1];
 };
 
-export const getKanpai = async<T = any> (url: string, executable: kanpai.KanpaiExecutable) => {
+export const getKanpai = async<T = any> (url: string, executable: KanpaiExecutable) => {
     const response = await axios.get(url);
-    const context = new kanpai.KanpaiContext(response.data);
-    return kanpai.executeKanpai<T>(context, executable, {
+    const context = new KanpaiContext(response.data);
+    return executeKanpai<T>(context, executable, {
         strict: false
     });
 };

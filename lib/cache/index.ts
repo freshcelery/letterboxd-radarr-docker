@@ -1,6 +1,6 @@
 import redis from 'redis';
 
-const cache = redis.createClient({ url: '172.17.0.10' });
+const cache = redis.createClient(6379,'172.17.0.10');
 
 export const has = (key: string): Promise<boolean> => new Promise((resolve, reject) => {
     if(!key){
